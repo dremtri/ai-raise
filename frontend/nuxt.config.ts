@@ -8,4 +8,9 @@ export default defineNuxtConfig({
   css: [
     '@/assets/css/main.css',
   ],
+  runtimeConfig: {
+    public: {
+      baseURL: 'http://localhost:1337',
+    },
+  },
 })

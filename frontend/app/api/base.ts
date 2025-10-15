@@ -4,7 +4,7 @@ export function useRequest<T = any>(options: RequestConfig) {
   const runtimeConfig = useRuntimeConfig()
 
   return $fetch<T>(options.url, {
-    baseURL: runtimeConfig.public.strapiBaseUrl,
+    baseURL: runtimeConfig.public.baseURL,
     headers: {
       'Content-Type': 'application/json',
       ...options.headers,
