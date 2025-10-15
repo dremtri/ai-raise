@@ -13,4 +13,7 @@ export default defineNuxtConfig({
       strapiBaseUrl: 'http://localhost:1337',
     },
   },
+  routeRules: {
+    '/serviceWorker.js': { redirect: '/robots.txt' },
+  },
 })

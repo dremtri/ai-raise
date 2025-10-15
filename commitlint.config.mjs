@@ -4,7 +4,7 @@ const getPackages = (packagePath) => {
   return fg.sync('*', { cwd: packagePath, onlyDirectories: true });
 };
 
-const scopes = [...getPackages('internal'), 'frontend', 'backend'];
+const scopes = [...getPackages('internal'), 'frontend'];
 
 /** @type { import('cz-git').UserConfig } */
 export default {
