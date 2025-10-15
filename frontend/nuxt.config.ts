@@ -8,12 +8,4 @@ export default defineNuxtConfig({
   css: [
     '@/assets/css/main.css',
   ],
-  runtimeConfig: {
-    public: {
-      strapiBaseUrl: 'http://localhost:1337',
-    },
-  },
-  routeRules: {
-    '/serviceWorker.js': { redirect: '/robots.txt' },
-  },
 })
