@@ -4,6 +4,10 @@
   "less.lint.unknownAtRules": "ignore",
   // Disable the default formatter, use eslint instead
   "prettier.enable": false,
+  // Custom dictionary for spell checker
+  "cSpell.words": [
+    "Nuxt"
+  ],
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
   // Auto fix

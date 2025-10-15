@@ -4,9 +4,9 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@unocss/nuxt', '@vueuse/nuxt'],
+  modules: ['@unocss/nuxt', '@vueuse/nuxt', '@nuxt/image'],
   css: [
-    '@/assets/css/main.css',
+    '@/assets/styles/index.scss',
   ],
   runtimeConfig: {
     public: {

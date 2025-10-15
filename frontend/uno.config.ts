@@ -38,6 +38,9 @@ export default defineConfig({
     transformerVariantGroup(),
   ],
   theme: {
+    colors: {
+      primary: 'var(--raise-primary)', // #1890ff
+    },
     breakpoints: {
       xs: '320px',
       sm: '640px',

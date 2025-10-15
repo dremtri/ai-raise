@@ -40,15 +40,3 @@ useHead({
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<style>
-html,
-body,
-#__nuxt {
-  overflow-x: initial;
-  font-size: 12px;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-</style>
