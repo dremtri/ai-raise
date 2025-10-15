@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "usernamehw.errorlens",
+    "antfu.iconify",
+    "antfu.unocss",
+    "vue.volar",
+    "yoavbls.pretty-ts-errors",
+    "johnsoncodehk.vscode-tsconfig-helper",
+    "dbaeumer.vscode-eslint"
+  ]
+}
