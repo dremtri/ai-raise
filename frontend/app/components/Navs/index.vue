@@ -25,7 +25,10 @@
 }
 
 .nav-wrapper {
-  @apply max-w-[var(--raise-container)] h-full flex items-center justify-between px-4 mx-auto;
+  @apply max-w-[var(--raise-container)] h-full px-4 mx-auto;
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -44,7 +47,8 @@
 }
 
 .nav-list {
-  @apply flex items-center gap-6 flex-1 justify-center;
+  @apply flex items-center gap-6;
+  justify-content: center;
 }
 
 .nav-item {
