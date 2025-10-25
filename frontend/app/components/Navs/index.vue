@@ -25,7 +25,7 @@
 }
 
 .nav-wrapper {
-  @apply max-w-[var(--raise-container)] h-full px-4 mx-auto;
+  @apply max-w-(--raise-container) h-full px-4 mx-auto;
   display: grid;
   grid-template-columns: 200px 1fr 200px;
   align-items: center;
@@ -52,8 +52,12 @@
 }
 
 .nav-item {
-  @apply hover:text-primary;
+  @apply hover:text-primary transition-colors;
   text-decoration: none;
+
+  &.router-link-active {
+    @apply text-primary font-semibold;
+  }
 }
 
 .nav-other {
