@@ -4,7 +4,7 @@
     <div class="mb-4">
       <div class="mb-6 border-b border-gray-300 flex gap-2">
         <button
-          class="font-medium px-4 py-2 transition-colors"
+          class="font-medium px-4 py-2 flex transition-colors items-center"
           :class="activeTab === 'templates' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600 hover:text-gray-900'"
           @click="activeTab = 'templates'"
         >
@@ -12,7 +12,7 @@
           模板 (Templates)
         </button>
         <button
-          class="font-medium px-4 py-2 transition-colors"
+          class="font-medium px-4 py-2 flex transition-colors items-center"
           :class="activeTab === 'custom' ? 'border-b-2 border-blue-500 text-blue-600' : 'text-gray-600 hover:text-gray-900'"
           @click="activeTab = 'custom'"
         >
