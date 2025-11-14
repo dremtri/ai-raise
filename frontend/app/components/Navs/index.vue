@@ -18,8 +18,14 @@
 
 <style lang="scss" scoped>
 .nav-container {
-  background-color: var(--raise-nav-bg);
-  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--raise-border-bottom);
   height: 64px;
 }
