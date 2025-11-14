@@ -49,10 +49,10 @@ const filteredWebsites = computed(() => {
   <div class="mx-auto px-4 py-8 container">
     <div class="mb-8">
       <h1 class="text-3xl font-bold mb-2">
-        工具网站收录
+        常用网站收录
       </h1>
       <p class="text-gray-600">
-        收录了 AI、Electron、UI 等相关的优质工具网站
+        收录了个人常用的 AI、UI、VUE 等相关的优质网站
       </p>
     </div>
 

@@ -14,7 +14,7 @@ export interface ToolWebsite {
   name: string
   url: string
   description: string
-  category: 'AI' | 'Electron' | 'UI' | 'Other'
+  category: 'AI' | 'Vue' | 'UI' | 'Learn' | 'Canvas' | '3D' | 'Design' | 'Other'
   tags: string[]
   icon?: string
   createdAt: string
