@@ -9,6 +9,13 @@ const viewMode = ref<'grid' | 'list'>('grid')
 // 获取工具网站数据
 const { data: websites } = await useFetch<ToolWebsite[]>('/api/tools/websites')
 
+// 跟踪图片加载失败的网站 ID
+const faviconErrors = ref<Set<string>>(new Set())
+
+function handleImageError(siteId: string) {
+  faviconErrors.value.add(siteId)
+}
+
 // 获取站点 URL
 const siteUrl = useSiteUrl()
 
@@ -168,8 +175,15 @@ const filteredWebsites = computed(() => {
         class="p-6 border border-gray-200 rounded-lg bg-white block shadow-sm transition-shadow hover:shadow-md"
       >
         <div class="flex gap-4 items-start">
-          <div class="text-4xl flex-shrink-0">
-            {{ site.icon || '🔗' }}
+          <div class="text-4xl flex flex-shrink-0 h-12 w-12 items-center justify-center">
+            <img
+              v-if="site.favicon && !faviconErrors.has(site.id)"
+              :src="site.favicon"
+              :alt="`${site.name} logo`"
+              class="h-8 w-8 object-contain"
+              @error="handleImageError(site.id)"
+            >
+            <span v-else class="text-4xl">{{ site.icon || '🔗' }}</span>
           </div>
           <div class="flex-1 min-w-0">
             <h3 class="text-xl font-semibold mb-2 truncate">
@@ -208,8 +222,15 @@ const filteredWebsites = computed(() => {
         rel="noopener noreferrer"
         class="p-4 border border-gray-200 rounded-lg bg-white flex gap-4 transition-shadow items-center hover:shadow-md"
       >
-        <div class="text-3xl flex-shrink-0">
-          {{ site.icon || '🔗' }}
+        <div class="text-3xl flex flex-shrink-0 h-10 w-10 items-center justify-center">
+          <img
+            v-if="site.favicon && !faviconErrors.has(site.id)"
+            :src="site.favicon"
+            :alt="`${site.name} logo`"
+            class="h-6 w-6 object-contain"
+            @error="handleImageError(site.id)"
+          >
+          <span v-else class="text-3xl">{{ site.icon || '🔗' }}</span>
         </div>
         <div class="flex-1 min-w-0">
           <div class="mb-1 flex gap-3 items-center">

@@ -17,5 +17,6 @@ export interface ToolWebsite {
   category: 'AI' | 'Vue' | 'UI' | 'Learn' | 'Canvas' | '3D' | 'Design' | 'Other'
   tags: string[]
   icon?: string
+  favicon?: string
   createdAt: string
 }

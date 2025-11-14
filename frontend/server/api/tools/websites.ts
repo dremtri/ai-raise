@@ -1,7 +1,18 @@
 import type { ToolWebsite } from '~/types/api'
 
+// 辅助函数：获取网站的 favicon URL
+function getFaviconUrl(url: string): string {
+  try {
+    const domain = new URL(url).origin
+    return `${domain}/favicon.ico`
+  }
+  catch {
+    return ''
+  }
+}
+
 export default defineEventHandler(async (): Promise<ToolWebsite[]> => {
-  return [
+  const websites: ToolWebsite[] = [
     // AI 相关
     {
       id: '1',
@@ -214,4 +225,10 @@ export default defineEventHandler(async (): Promise<ToolWebsite[]> => {
       createdAt: '2024-11-13',
     },
   ]
+
+  // 为每个网站添加 favicon URL
+  return websites.map(site => ({
+    ...site,
+    favicon: getFaviconUrl(site.url),
+  }))
 })
