@@ -7,3 +7,15 @@ export interface RequestConfig extends NitroFetchOptions<NitroFetchRequest, Lowe
 }
 
 export type RequestOptions = Omit<RequestConfig, 'method' | 'url'>
+
+// 工具网站相关类型
+export interface ToolWebsite {
+  id: string
+  name: string
+  url: string
+  description: string
+  category: 'AI' | 'Electron' | 'UI' | 'Other'
+  tags: string[]
+  icon?: string
+  createdAt: string
+}
