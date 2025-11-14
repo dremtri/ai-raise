@@ -119,9 +119,18 @@
 <script setup lang="ts">
 import type { StyleSettings } from '~/composables/usePinyinData'
 
+import dayjs from 'dayjs'
 import { ref } from 'vue'
-
 import { defaultStyleSettings, getPinyin, getToneColor } from '~/composables/usePinyinData'
+
+// 页面特定的 SEO 设置
+useSeoMeta({
+  title: '汉字注音工具 - 在线拼音标注',
+  description: '免费在线汉字拼音注音工具，支持多种样式设置、PDF 导出，适用于教学、学习和文档制作。',
+  ogTitle: '汉字注音工具 - 在线拼音标注',
+  ogDescription: '免费在线汉字拼音注音工具，支持多种样式和 PDF 导出',
+  twitterCard: 'summary',
+})
 
 const inputText = ref('')
 const isExporting = ref(false)
@@ -207,7 +216,7 @@ async function exportToPDF() {
     }
 
     // Save PDF
-    const fileName = `汉字注音_${new Date().toISOString().slice(0, 10)}.pdf`
+    const fileName = `汉字注音_${dayjs().format('YYYY-MM-DD')}.pdf`
     pdf.save(fileName)
   }
   catch (error) {
@@ -281,7 +290,7 @@ function generatePDFContent(text: string, settings: StyleSettings): string {
     </div>
     
     <div style="text-align: center; margin-top: 15px; font-size: 9px; color: #999;">
-      ${new Date().toLocaleDateString('zh-CN')}
+      ${dayjs().format('YYYY-MM-DD')}
     </div>
   `
 }

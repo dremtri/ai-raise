@@ -1,23 +1,23 @@
-import { useDateFormat } from '@vueuse/shared'
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
 
 export function getChineseDate() {
-  return new Date(
-    new Date().getTime()
-      + new Date().getTimezoneOffset() * 60 * 1000
-      + 8 * 60 * 60 * 1000,
-  )
+  return dayjs().tz('Asia/Shanghai')
 }
 
 // 返回num天前的日期
 export function useTime(num: number) {
-  const date = new Date(getChineseDate().getTime() - num * 24 * 60 * 60 * 1000)
-  return useDateFormat(date, 'YYYY-MM-DD').value
+  return getChineseDate().subtract(num, 'day').format('YYYY-MM-DD')
 }
 
 export function useDayParts() {
   const state = ref('')
-  const hours = useDateFormat(getChineseDate(), 'HH')
-  const hour = Number.parseInt(hours.value)
+  const hours = getChineseDate().format('HH')
+  const hour = Number.parseInt(hours)
   if (hour >= 0 && hour <= 11)
     state.value = '早上好!'
   else if (hour > 11 && hour <= 14)

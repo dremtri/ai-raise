@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ToolWebsite } from '~/types/api'
+import { useSiteUrl } from '~/composables/useSiteUrl'
 
 const searchQuery = ref('')
 const selectedCategory = ref<string>('All')
@@ -7,6 +8,36 @@ const viewMode = ref<'grid' | 'list'>('grid')
 
 // 获取工具网站数据
 const { data: websites } = await useFetch<ToolWebsite[]>('/api/tools/websites')
+
+// 获取站点 URL
+const siteUrl = useSiteUrl()
+
+// 页面特定的 SEO 设置
+useSeoMeta({
+  title: '工具网站收录 - AI、Vue、UI 等优质工具集合',
+  description: '精选 AI、Vue、UI、Learn、3D、Canvas 等领域的优质工具网站，包含 Claude、Vue.js、Nuxt、UnoCSS、Three.js 等主流开发工具和学习资源。',
+  ogTitle: '工具网站收录 - 优质开发工具集合',
+  ogDescription: '精选 AI、Vue、UI 等领域的优质工具网站和学习资源',
+  ogType: 'website',
+  ogUrl: siteUrl,
+  twitterCard: 'summary_large_image',
+})
+
+// 结构化数据
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': 'AiRaise 工具收录',
+        'description': '精选 AI、Vue、UI 等领域的优质工具网站和学习资源',
+        'url': siteUrl,
+      }),
+    },
+  ],
+})
 
 // 所有分类
 const categories = computed(() => {
