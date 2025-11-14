@@ -8,6 +8,13 @@ export default defineNuxtConfig({
   css: [
     '@/assets/styles/index.scss',
   ],
+
+  // Site 配置（用于 sitemap 等 SEO 模块）
+  // @ts-expect-error - site config is added by nuxt-site-config module
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  },
+
   runtimeConfig: {
     public: {
       baseURL: 'http://localhost:1337',
